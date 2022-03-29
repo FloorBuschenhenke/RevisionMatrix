@@ -1,0 +1,28 @@
+worknotes
+
+Take Inputlog GA-files and create a Revision matrix analysis from them, but including:
+text output, start and end time, start_id_ga, start position in doc, text length at start
+
+Using non-linearity script (jump events segmentation) as a design basis for new scripts.
+
+To be used on multiple-session processes (but single session also fine), run for each writer individually.
+
+workflow: 1. load.data, 2. SetBoundaries, 3. AddInfoChunks
+
+gitignore actual data files for privacy
+
+TODO
+- startijd van de eerste actie naar 0 zetten per sessie en rest daarop aansluiten
+- pauzefilter script naar functie omzetten met aanpasbare threshold (toepassen op ruwe GA's)
+- dan is het handig om de startTime en endTime cols te overschrijven anders moet SetBoundaries en AddINfo worden aangepast
+
+
+DONE
+
+- loaddata 
+- jump events script aanpassen
+- startpauze toevoegen per event
+- start ga_id ook
+- doc lengte toevoegen
+- opschonen tabel (overbodige kols eruit)
+- revision matrix maken
