@@ -7,7 +7,7 @@ library(tidyverse)
 library(lubridate)
 
 matrix1 <- read.csv("data/revisionmatrix.csv")
-names(matrix1)
+#names(matrix1)
 
 
 ### session id 1 #### 
@@ -47,14 +47,16 @@ matrix6 <- matrix5 %>%
 matrix6$seq_element_starttime2 <- gsub('[-: ]', '', matrix6$seq_element_starttime1)
 
 #view(matrix6)
-names(matrix6)
+#names(matrix6)
 #clean, remove helper columns
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)
+  relocate(seq_element, .before = start_id_GA)%>%
+  relocate(start_position, .before = start_time_rel)%>%
+  relocate(end_position, .after = start_position)
 
-#view(matrix7)
+view(matrix7)
 
 write.csv(matrix7, "data/meijen_revmatrix_sessionid_1.csv", row.names = FALSE)
 
@@ -106,7 +108,9 @@ names(matrix6)
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)
+  relocate(seq_element, .before = start_id_GA)%>%
+  relocate(start_position, .before = start_time_rel)%>%
+  relocate(end_position, .after = start_position)
 
 #view(matrix7)
 
@@ -163,7 +167,9 @@ names(matrix6)
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)
+  relocate(seq_element, .before = start_id_GA)%>%
+  relocate(start_position, .before = start_time_rel)%>%
+  relocate(end_position, .after = start_position)
 
 #view(matrix7)
 
@@ -219,7 +225,9 @@ names(matrix6)
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)
+  relocate(seq_element, .before = start_id_GA)%>%
+  relocate(start_position, .before = start_time_rel)%>%
+  relocate(end_position, .after = start_position)
 
 #view(matrix7)
 
@@ -272,7 +280,9 @@ names(matrix6)
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)
+  relocate(seq_element, .before = start_id_GA)%>%
+  relocate(start_position, .before = start_time_rel)%>%
+  relocate(end_position, .after = start_position)
 
 #view(matrix7)
 
@@ -327,7 +337,9 @@ names(matrix6)
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)
+  relocate(seq_element, .before = start_id_GA)%>%
+  relocate(start_position, .before = start_time_rel)%>%
+  relocate(end_position, .after = start_position)
 
 #view(matrix7)
 
