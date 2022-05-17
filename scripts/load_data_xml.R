@@ -64,9 +64,9 @@ data_all_3 <- data_all_2%>%
   mutate(session_number = gsub(".*_(\\d{1,3}).*", "\\1", logfile))%>%
   select(-logfile,-analysiscreationdate)
   
-head(data_all_3)                                
+#head(data_all_3)                                
                                 
-names(data_all_3)
+#names(data_all_3)
 
 write.csv(data_all_3, "data/data_all_JeanMarie.csv")
 

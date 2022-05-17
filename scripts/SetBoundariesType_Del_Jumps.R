@@ -13,7 +13,7 @@ options(scipen = 999)
 
 
 all_dataX <- read.csv("data/data_all_JeanMarie.csv", stringsAsFactors = F)
-colnames(all_dataX)
+#colnames(all_dataX)
 
 #deze input heeft row names (kolom X.1)is niet de bedoeling
 all_data <- all_dataX %>%
