@@ -9,7 +9,7 @@ library(tidyverse)
 library(lubridate)
 
 matrix1 <- read.csv("data/data_all_JeanMarie.csv")
-names(matrix1)
+#names(matrix1)
 
 
 ### session id 1 #### 
