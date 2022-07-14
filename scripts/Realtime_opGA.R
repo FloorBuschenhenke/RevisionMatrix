@@ -61,17 +61,18 @@ view(matrix7)
 
 write.csv(matrix7, "data/meijen_GA_sessionid_1.csv", row.names = FALSE)
 
-### vanaf hier nog niet aangepast naar GA!####
+
+
 ### session id 4 ####
 
 # first set start and endtimes to 0 at the start of the session
-matrix1 <- read.csv("data/revisionmatrix.csv")
-names(matrix1)
+matrix1 <- read.csv("data/data_all_JeanMarie.csv")
 
 matrix2 <- matrix1 %>%
   filter(session_number == "4")%>%
-  mutate(starttijdschoon = start_time - first(start_time),
-         eindtijdschoon = (end_time - start_time) + starttijdschoon)
+  mutate(starttijdschoon = startTime - first(startTime),
+         eindtijdschoon = (endTime - startTime) + starttijdschoon)
+
 
 #view(matrix2)
 
@@ -106,19 +107,20 @@ matrix6$seq_element_starttime2 <- gsub('[-: ]', '', matrix6$seq_element_starttim
 #view(matrix6)
 names(matrix6)
 #clean, remove helper columns
+
 matrix7 <- matrix6 %>%
   select(-startdatumtijd, -starttijdklok1, -starttijdklok2, -seq_element_starttime1)%>%
   rename (seq_element = seq_element_starttime2)%>%
-  relocate(seq_element, .before = start_id_GA)%>%
-  relocate(start_position, .before = start_time_rel)%>%
-  relocate(end_position, .after = start_position)
-
-#view(matrix7)
-
-write.csv(matrix7, "data/meijen_revmatrix_sessionid_4.csv", row.names = FALSE)
+  relocate(seq_element, .before = id)
 
 
 
+view(matrix7)
+
+write.csv(matrix7, "data/meijen_GA_sessionid_4.csv", row.names = FALSE)
+
+
+### vanaf hier nog niet aangepast naar GA!####
 
 
 ### session id 7 ####
