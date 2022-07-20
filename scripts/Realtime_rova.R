@@ -408,7 +408,7 @@ matrix1 <- read.csv("data/revisionmatrix.csv")
 names(matrix1)
 
 matrix2 <- matrix1 %>%
-  filter(session_number == "6")%>%
+  filter(session_number == "7")%>%
   mutate(starttijdschoon = start_time - first(start_time),
          eindtijdschoon = (end_time - start_time) + starttijdschoon)
 
